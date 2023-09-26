@@ -1,0 +1,502 @@
+# Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+# do top_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/top.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:30 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/top.sv 
+# -- Compiling module top
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 16:01:32 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/reg_file.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:32 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/reg_file.sv 
+# -- Compiling module reg_file
+# -- Compiling module reg_file_testbench
+# 
+# Top level modules:
+# 	reg_file_testbench
+# End time: 16:01:33 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/fullAdder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:33 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/fullAdder.sv 
+# -- Compiling module fullAdder
+# -- Compiling module fullAdder_testbench
+# 
+# Top level modules:
+# 	fullAdder_testbench
+# End time: 16:01:34 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/dmem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:35 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/dmem.sv 
+# -- Compiling module dmem
+# 
+# Top level modules:
+# 	dmem
+# End time: 16:01:36 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/arm.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:36 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/arm.sv 
+# -- Compiling module arm
+# 
+# Top level modules:
+# 	arm
+# End time: 16:01:37 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/imem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:37 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/imem.sv 
+# -- Compiling module imem
+# 
+# Top level modules:
+# 	imem
+# End time: 16:01:39 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:39 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/alu.sv 
+# -- Compiling module alu
+# -- Compiling module alu_testbench
+# 
+# Top level modules:
+# 	alu_testbench
+# End time: 16:01:40 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 16:26:26 on May 08,2022
+# Loading sv_std.std
+# Loading work.testbench
+# Loading work.top
+# Loading work.arm
+# Loading work.reg_file
+# Loading work.alu
+# Loading work.fullAdder
+# Loading work.imem
+# Loading work.dmem
+# Load canceled
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+add wave -position end  sim:/testbench/cpu/processor/clk
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: leung01  Hostname: ENGR-ECE-13  ProcessID: 7976
+#           Attempting to use alternate WLF file "./wlftqd6t6g".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftqd6t6g
+add wave -position end  sim:/testbench/cpu/processor/rst
+add wave -position end  sim:/testbench/cpu/processor/InstrD
+add wave -position 2  sim:/testbench/cpu/processor/PCF
+add wave -position end  sim:/testbench/cpu/processor/InstrD
+add wave -position end  sim:/testbench/cpu/processor/InstrF
+add wave -position end  sim:/testbench/cpu/processor/FlushD
+add wave -position end  sim:/testbench/cpu/processor/FlushE
+add wave -position end  sim:/testbench/cpu/processor/StallD
+add wave -position end  sim:/testbench/cpu/processor/StallF
+add wave -position end  sim:/testbench/cpu/processor/SrcAE
+add wave -position end  sim:/testbench/cpu/processor/SrcBE
+add wave -position end  sim:/testbench/cpu/processor/ResultW
+add wave -position end  sim:/testbench/cpu/processor/ALUResultM
+add wave -position end  sim:/testbench/cpu/processor/ForwardAE
+add wave -position end  sim:/testbench/cpu/processor/ForwardBE
+add wave -position end  sim:/testbench/cpu/dmemory/memory
+restart
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+add wave -position end  sim:/testbench/cpu/processor/u_reg_file/memory
+restart
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+add wave -position 3  sim:/testbench/cpu/processor/CondE
+restart
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+restart
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf U:/EE469/Lab3/simulation/modelsim/wave.do
+vsim work.testbench
+# End time: 21:08:16 on May 08,2022, Elapsed time: 4:41:50
+# Errors: 1, Warnings: 2
+# vsim work.testbench 
+# Start time: 21:08:16 on May 08,2022
+# Loading sv_std.std
+# Loading work.testbench
+# Loading work.top
+# Loading work.arm
+# Loading work.reg_file
+# Loading work.alu
+# Loading work.fullAdder
+# Loading work.imem
+# Loading work.dmem
+do wave.do
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: leung01  Hostname: ENGR-ECE-13  ProcessID: 7976
+#           Attempting to use alternate WLF file "./wlft523nfq".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft523nfq
+
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+do top_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/top.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:08:44 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/top.sv 
+# -- Compiling module top
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 21:08:46 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/reg_file.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:08:46 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/reg_file.sv 
+# -- Compiling module reg_file
+# -- Compiling module reg_file_testbench
+# 
+# Top level modules:
+# 	reg_file_testbench
+# End time: 21:08:47 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/fullAdder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:08:47 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/fullAdder.sv 
+# -- Compiling module fullAdder
+# -- Compiling module fullAdder_testbench
+# 
+# Top level modules:
+# 	fullAdder_testbench
+# End time: 21:08:49 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/dmem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:08:49 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/dmem.sv 
+# -- Compiling module dmem
+# 
+# Top level modules:
+# 	dmem
+# End time: 21:08:50 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/arm.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:08:51 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/arm.sv 
+# -- Compiling module arm
+# 
+# Top level modules:
+# 	arm
+# End time: 21:08:52 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/imem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:08:52 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/imem.sv 
+# -- Compiling module imem
+# 
+# Top level modules:
+# 	imem
+# End time: 21:08:54 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:08:54 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/alu.sv 
+# -- Compiling module alu
+# -- Compiling module alu_testbench
+# 
+# Top level modules:
+# 	alu_testbench
+# End time: 21:08:55 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+restart
+# Loading work.testbench
+# Loading work.top
+# Loading work.arm
+# Loading work.reg_file
+# Loading work.alu
+# Loading work.fullAdder
+# Loading work.imem
+# Loading work.dmem
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+vsim work.testbench
+# End time: 21:09:37 on May 08,2022, Elapsed time: 0:01:21
+# Errors: 0, Warnings: 2
+# vsim work.testbench 
+# Start time: 21:09:37 on May 08,2022
+# Loading sv_std.std
+# Loading work.testbench
+# Loading work.top
+# Loading work.arm
+# Loading work.reg_file
+# Loading work.alu
+# Loading work.fullAdder
+# Loading work.imem
+# Loading work.dmem
+do wave.do
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: leung01  Hostname: ENGR-ECE-13  ProcessID: 7976
+#           Attempting to use alternate WLF file "./wlftwkfwgg".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftwkfwgg
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+do top_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/top.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:03 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/top.sv 
+# -- Compiling module top
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 21:10:05 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/reg_file.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:05 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/reg_file.sv 
+# -- Compiling module reg_file
+# -- Compiling module reg_file_testbench
+# 
+# Top level modules:
+# 	reg_file_testbench
+# End time: 21:10:07 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/fullAdder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:07 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/fullAdder.sv 
+# -- Compiling module fullAdder
+# -- Compiling module fullAdder_testbench
+# 
+# Top level modules:
+# 	fullAdder_testbench
+# End time: 21:10:08 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/dmem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:08 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/dmem.sv 
+# -- Compiling module dmem
+# 
+# Top level modules:
+# 	dmem
+# End time: 21:10:10 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/arm.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:10 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/arm.sv 
+# -- Compiling module arm
+# 
+# Top level modules:
+# 	arm
+# End time: 21:10:12 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/imem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:12 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/imem.sv 
+# -- Compiling module imem
+# 
+# Top level modules:
+# 	imem
+# End time: 21:10:13 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:13 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/alu.sv 
+# -- Compiling module alu
+# -- Compiling module alu_testbench
+# 
+# Top level modules:
+# 	alu_testbench
+# End time: 21:10:15 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# 
+do top_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/top.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:31 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/top.sv 
+# -- Compiling module top
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 21:10:32 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/reg_file.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:32 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/reg_file.sv 
+# -- Compiling module reg_file
+# -- Compiling module reg_file_testbench
+# 
+# Top level modules:
+# 	reg_file_testbench
+# End time: 21:10:34 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/fullAdder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:34 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/fullAdder.sv 
+# -- Compiling module fullAdder
+# -- Compiling module fullAdder_testbench
+# 
+# Top level modules:
+# 	fullAdder_testbench
+# End time: 21:10:35 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/dmem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:36 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/dmem.sv 
+# -- Compiling module dmem
+# 
+# Top level modules:
+# 	dmem
+# End time: 21:10:42 on May 08,2022, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/arm.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:42 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/arm.sv 
+# -- Compiling module arm
+# 
+# Top level modules:
+# 	arm
+# End time: 21:10:44 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/imem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:44 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/imem.sv 
+# -- Compiling module imem
+# 
+# Top level modules:
+# 	imem
+# End time: 21:10:45 on May 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+U:/EE469/Lab3 {U:/EE469/Lab3/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:10:45 on May 08,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+U:/EE469/Lab3" U:/EE469/Lab3/alu.sv 
+# -- Compiling module alu
+# -- Compiling module alu_testbench
+# 
+# Top level modules:
+# 	alu_testbench
+# End time: 21:10:47 on May 08,2022, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# 
+restart
+# Loading work.testbench
+# Loading work.top
+# Loading work.arm
+# Loading work.reg_file
+# Loading work.alu
+# Loading work.fullAdder
+# Loading work.imem
+# Loading work.dmem
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+run -all
+restart
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91
+run -all
+restart
+run -all
+# Task 1 Failed
+# ** Note: $stop    : U:/EE469/Lab3/top.sv(91)
+#    Time: 5200 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at U:/EE469/Lab3/top.sv line 91

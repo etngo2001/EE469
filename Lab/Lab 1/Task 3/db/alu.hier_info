@@ -1,0 +1,937 @@
+|alu
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+a[8] => a[8].IN1
+a[9] => a[9].IN1
+a[10] => a[10].IN1
+a[11] => a[11].IN1
+a[12] => a[12].IN1
+a[13] => a[13].IN1
+a[14] => a[14].IN1
+a[15] => a[15].IN1
+a[16] => a[16].IN1
+a[17] => a[17].IN1
+a[18] => a[18].IN1
+a[19] => a[19].IN1
+a[20] => a[20].IN1
+a[21] => a[21].IN1
+a[22] => a[22].IN1
+a[23] => a[23].IN1
+a[24] => a[24].IN1
+a[25] => a[25].IN1
+a[26] => a[26].IN1
+a[27] => a[27].IN1
+a[28] => a[28].IN1
+a[29] => a[29].IN1
+a[30] => a[30].IN1
+a[31] => a[31].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+b[8] => b[8].IN1
+b[9] => b[9].IN1
+b[10] => b[10].IN1
+b[11] => b[11].IN1
+b[12] => b[12].IN1
+b[13] => b[13].IN1
+b[14] => b[14].IN1
+b[15] => b[15].IN1
+b[16] => b[16].IN1
+b[17] => b[17].IN1
+b[18] => b[18].IN1
+b[19] => b[19].IN1
+b[20] => b[20].IN1
+b[21] => b[21].IN1
+b[22] => b[22].IN1
+b[23] => b[23].IN1
+b[24] => b[24].IN1
+b[25] => b[25].IN1
+b[26] => b[26].IN1
+b[27] => b[27].IN1
+b[28] => b[28].IN1
+b[29] => b[29].IN1
+b[30] => b[30].IN1
+b[31] => b[31].IN1
+ALUControl[0] => ALUControl[0].IN33
+ALUControl[1] => ALUControl[1].IN32
+Result[0] <= singleALU:setCarries.Result
+Result[1] <= singleALU:ALUPipeline[1].results.Result
+Result[2] <= singleALU:ALUPipeline[2].results.Result
+Result[3] <= singleALU:ALUPipeline[3].results.Result
+Result[4] <= singleALU:ALUPipeline[4].results.Result
+Result[5] <= singleALU:ALUPipeline[5].results.Result
+Result[6] <= singleALU:ALUPipeline[6].results.Result
+Result[7] <= singleALU:ALUPipeline[7].results.Result
+Result[8] <= singleALU:ALUPipeline[8].results.Result
+Result[9] <= singleALU:ALUPipeline[9].results.Result
+Result[10] <= singleALU:ALUPipeline[10].results.Result
+Result[11] <= singleALU:ALUPipeline[11].results.Result
+Result[12] <= singleALU:ALUPipeline[12].results.Result
+Result[13] <= singleALU:ALUPipeline[13].results.Result
+Result[14] <= singleALU:ALUPipeline[14].results.Result
+Result[15] <= singleALU:ALUPipeline[15].results.Result
+Result[16] <= singleALU:ALUPipeline[16].results.Result
+Result[17] <= singleALU:ALUPipeline[17].results.Result
+Result[18] <= singleALU:ALUPipeline[18].results.Result
+Result[19] <= singleALU:ALUPipeline[19].results.Result
+Result[20] <= singleALU:ALUPipeline[20].results.Result
+Result[21] <= singleALU:ALUPipeline[21].results.Result
+Result[22] <= singleALU:ALUPipeline[22].results.Result
+Result[23] <= singleALU:ALUPipeline[23].results.Result
+Result[24] <= singleALU:ALUPipeline[24].results.Result
+Result[25] <= singleALU:ALUPipeline[25].results.Result
+Result[26] <= singleALU:ALUPipeline[26].results.Result
+Result[27] <= singleALU:ALUPipeline[27].results.Result
+Result[28] <= singleALU:ALUPipeline[28].results.Result
+Result[29] <= singleALU:ALUPipeline[29].results.Result
+Result[30] <= singleALU:ALUPipeline[30].results.Result
+Result[31] <= singleALU:ALUPipeline[31].results.Result
+ALUFlags[0] <= overFlowCheck.DB_MAX_OUTPUT_PORT_TYPE
+ALUFlags[1] <= singleALU:ALUPipeline[31].results.carryOut
+ALUFlags[2] <= zeroChecker.DB_MAX_OUTPUT_PORT_TYPE
+ALUFlags[3] <= singleALU:ALUPipeline[31].results.Result
+
+
+|alu|singleALU:setCarries
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:setCarries|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[1].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[1].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[2].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[2].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[3].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[3].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[4].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[4].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[5].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[5].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[6].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[6].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[7].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[7].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[8].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[8].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[9].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[9].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[10].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[10].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[11].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[11].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[12].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[12].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[13].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[13].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[14].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[14].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[15].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[15].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[16].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[16].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[17].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[17].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[18].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[18].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[19].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[19].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[20].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[20].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[21].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[21].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[22].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[22].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[23].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[23].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[24].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[24].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[25].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[25].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[26].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[26].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[27].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[27].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[28].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[28].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[29].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[29].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[30].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[30].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu|singleALU:ALUPipeline[31].results
+a => a.IN1
+b => andValue.IN0
+b => orValue.IN0
+b => selectB.IN0
+b => selectNotB.IN0
+carryIn => carryIn.IN1
+ALUControl[0] => selectNotB.IN1
+ALUControl[0] => Mux0.IN1
+ALUControl[0] => selectB.IN1
+ALUControl[1] => Mux0.IN0
+Result <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= fullAdder:fullAddedValue.carryOut
+
+
+|alu|singleALU:ALUPipeline[31].results|fullAdder:fullAddedValue
+a => Result.IN0
+a => carryOut.IN0
+b => Result.IN1
+b => carryOut.IN1
+carryIn => Result.IN1
+carryIn => carryOut.IN1
+Result <= Result.DB_MAX_OUTPUT_PORT_TYPE
+carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+
+
